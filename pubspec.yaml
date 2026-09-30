@@ -1,7 +1,11 @@
 name: flutter_nvecta_ads_tracker
 description: "Flutter plugin for integrating NVECTAAdTrackingSDK and managing ATT and IDFA tracking with NVECTA or notifyvisitors package."
 version: 0.0.1
-homepage: https://github.com/tagnpin/flutter_nvecta_ads_tracker
+homepage: https://github.com/tagnpin/flutter_nvecta_ads_tracker/tree/dev
+repository: https://github.com/tagnpin/flutter_nvecta_ads_tracker/tree/dev
+# homepage: https://github.com/tagnpin/flutter_nvecta_ads_tracker
+# repository: https://github.com/tagnpin/flutter_nvecta_ads_tracker
+issue_tracker: https://github.com/tagnpin/flutter_nvecta_ads_tracker/issues
 
 environment:
   sdk: ^3.11.1
