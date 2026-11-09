@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "nvecta-ios-sdk",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/tagnpin/nvecta-ios-sdk.git",
+      "state" : {
+        "revision" : "6b94fc7191ff884c54f81fa7c0324ba7fb5027f8",
+        "version" : "1.0.4"
+      }
+    }
+  ],
+  "version" : 2
+}

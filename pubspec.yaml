@@ -1,0 +1,34 @@
+name: flutter_nvecta_ads_tracker
+version: 1.0.0
+description: >
+  Flutter plugin for integrating NVECTAAdTrackingSDK and managing
+  App Tracking Transparency (ATT) authorization and IDFA tracking
+  with NVECTA or Notifyvisitors SDK.
+
+homepage: https://github.com/tagnpin/flutter_nvecta_ads_tracker
+repository: https://github.com/tagnpin/flutter_nvecta_ads_tracker
+issue_tracker: https://github.com/tagnpin/flutter_nvecta_ads_tracker/issues
+
+topics:
+  - app-tracking-transparency
+  - idfa
+  - flutter-plugin
+
+environment:
+  sdk: ^3.11.1
+  flutter: ">=3.3.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+
+flutter:
+  plugin:
+    platforms:
+      ios:
+        pluginClass: NvectaAdsTrackerPlugin
