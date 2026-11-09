@@ -6,7 +6,7 @@ import PackageDescription
 let package = Package(
     name: "flutter_nvecta_ads_tracker",
     platforms: [
-        .iOS("13.0")
+        .iOS("14.0")
     ],
     products: [
         .library(name: "flutter-nvecta-ads-tracker", targets: ["flutter_nvecta_ads_tracker"])
@@ -14,7 +14,7 @@ let package = Package(
      dependencies: [
         .package(
             url: "https://github.com/tagnpin/nvecta-ios-sdk.git",
-            exact: "1.0.1"
+            exact: "1.0.4"
         )
     ],
      targets: [

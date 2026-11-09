@@ -4,7 +4,7 @@
 #
 Pod::Spec.new do |s|
   s.name             = 'flutter_nvecta_ads_tracker'
-  s.version          = '0.0.1'
+  s.version          = '1.0.0'
   s.summary          = 'Flutter plugin for integrating NVECTAAdTrackingSDK and managing ATT and IDFA tracking with NVECTA or notifyvisitors package.'
   s.description      = <<-DESC
 An optional Flutter plugin that integrates the NVECTAAdTrackingSDK to handle
@@ -20,7 +20,7 @@ NVECTA or NotifyVisitors Flutter SDK and is not a standalone SDK.
   s.platform = :ios, '14.0'
 
   s.dependency 'Flutter'
-  s.dependency 'NVECTAAdTrackingSDK', '1.0.0'
+  s.dependency 'NVECTAAdTrackingSDK', '1.0.1'
 
   # Flutter.framework does not contain a i386 slice.
   s.pod_target_xcconfig = { 'DEFINES_MODULE' => 'YES', 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'i386' }
