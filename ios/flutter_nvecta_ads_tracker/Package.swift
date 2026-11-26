@@ -14,7 +14,7 @@ let package = Package(
      dependencies: [
         .package(
             url: "https://github.com/tagnpin/nvecta-ios-sdk.git",
-            exact: "1.0.4"
+            exact: "1.0.6"
         )
     ],
      targets: [
