@@ -1,5 +1,5 @@
 name: flutter_nvecta_ads_tracker
-version: 1.0.0
+version: 1.0.1
 description: >
   Flutter plugin for integrating NVECTAAdTrackingSDK and managing
   App Tracking Transparency (ATT) authorization and IDFA tracking
