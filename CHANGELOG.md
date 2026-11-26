@@ -1,5 +1,13 @@
 # Changelog
 
+### Version 1.0.1 _(November 26, 2026)_
+
+---
+
+- Optimised `PrivacyInfo` info details
+- Bug fixes
+- Code optimisation and performance enhancement
+
 ### Version 1.0.0 _(November 09, 2026)_
 
 ---

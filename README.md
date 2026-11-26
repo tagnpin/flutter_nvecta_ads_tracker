@@ -1,22 +1,29 @@
-# flutter_nvecta_ads_tracker — IDFA & App Tracking Transparency (Flutter)
+# Mobile Measurement Partner (MMP) – IDFA Integration for Flutter
 
-`flutter_nvecta_ads_tracker` is an optional Flutter plugin that provides **App Tracking Transparency (ATT)** authorization and **IDFA (Identifier for Advertisers)** functionality for applications using the **[flutter_notifyvisitors](https://pub.dev/packages/flutter_notifyvisitors)** package.
+`flutter_nvecta_ads_tracker` is an optional Flutter plugin designed to support IDFA-based mobile attribution and advertising campaign measurement when using NVECTA as your Mobile Measurement Partner (MMP) for advertising platforms such as Google Ads and Meta.
 
-When integrated, the tracking plugin communicates the available tracking state and IDFA internally to the core Notifyvisitors SDK. Applications that do not require IDFA can continue using **[flutter_notifyvisitors](https://pub.dev/packages/flutter_notifyvisitors)** without this plugin.
+The plugin provides support for Apple's App Tracking Transparency (ATT) authorization and Identifier for Advertisers (IDFA) retrieval on iOS, subject to user authorization.
+
+When integrated, the plugin automatically communicates the available tracking authorization state and IDFA internally to the core NVECTA SDK.
+
+Applications that do not require IDFA-based attribution can continue using the [flutter_notifyvisitors](https://pub.dev/packages/flutter_notifyvisitors) package without integrating `flutter_nvecta_ads_tracker`.
+
+This guide covers plugin installation, configuration, initialization, ATT authorization, IDFA behavior, and MMP configuration.
 
 ## Requirements
 
-| Requirement     | Details                                                                               |
-| --------------- | ------------------------------------------------------------------------------------- |
-| iOS             | iOS 14+                                                                               |
-| Core SDK        | **[flutter_notifyvisitors](https://pub.dev/packages/flutter_notifyvisitors)**         |
-| Optional Plugin | **[flutter_nvecta_ads_tracker](https://pub.dev/packages/flutter_nvecta_ads_tracker)** |
+| Requirement              | Details                                                                               |
+| ------------------------ | ------------------------------------------------------------------------------------- |
+| Platform                 | iOS (Flutter application)                                                             |
+| iOS                      | iOS 14.0 or later for ATT authorization                                               |
+| Core Plugin              | **[flutter_notifyvisitors](https://pub.dev/packages/flutter_notifyvisitors)**         |
+| Optional Tracking Plugin | **[flutter_nvecta_ads_tracker](https://pub.dev/packages/flutter_nvecta_ads_tracker)** |
 
 > ATT authorization is available on iOS 14 and later. On unsupported iOS versions, the tracking flow continues without IDFA.
 
 ## Installation
 
-Add `flutter_nvecta_ads_tracker` to your Flutter project:
+To enable IDFA-based mobile attribution, add `flutter_nvecta_ads_tracker` to your Flutter project alongside the core `flutter_notifyvisitors` plugin.
 
 ```bash
 flutter pub add flutter_nvecta_ads_tracker
@@ -34,14 +41,16 @@ Flutter Application
 
 ## Configure ATT
 
-Add `NSUserTrackingUsageDescription` to the iOS application's `ios/Runner/Info.plist`:
+To request tracking authorization, add the `NSUserTrackingUsageDescription` key to the iOS application's `ios/Runner/Info.plist`:
 
 ```xml
 <key>NSUserTrackingUsageDescription</key>
 <string>This identifier will be used to improve analytics and personalized experiences.</string>
 ```
 
-Use a description that accurately explains why the application requests tracking authorization.
+The usage description is displayed to users when the system presents the ATT authorization prompt.
+
+Ensure that the description accurately reflects how your application uses tracking information, including advertising identifiers and mobile attribution.
 
 > The key must be present in the host application's final `Info.plist`. Adding it only to a framework's `Info.plist` is not sufficient.
 
@@ -54,7 +63,10 @@ Initialize `NvectaAdsTrackerPlugin` in the iOS `AppDelegate`, immediately after 
 **AppDelegate.swift**
 
 ```swift
+// Initialize the core Notifyvisitors SDK.
 NotifyvisitorsPlugin.nvInitialise()
+
+// Initialize the optional tracking plugin.
 NvectaAdsTrackerPlugin.shared.start()
 ```
 
@@ -117,6 +129,16 @@ The tracking plugin handles the current ATT authorization state automatically.
 If the user has previously made an ATT authorization decision, the plugin reads the existing status. Apple does not display the permission prompt again after a decision has been made.
 
 `flutter_nvecta_ads_tracker` does not block `flutter_notifyvisitors` while waiting for ATT authorization. Once authorization is available, the IDFA is propagated internally to the core SDK for subsequent processing.
+
+---
+
+## Mobile Measurement Partner (MMP) Configuration
+
+After integrating `flutter_nvecta_ads_tracker`, complete the applicable advertising platform configuration to enable mobile attribution and campaign measurement with `NVECTA` as your Mobile Measurement Partner (MMP).
+
+For detailed advertising platform configuration, refer to:
+
+➡️ **[Set Up NVECTA as Your Mobile Measurement Partner (MMP) for Google Ads and Meta](https://www.nvecta.com/support/solutions/articles/84000399758-set-up-nvecta-as-your-mobile-measurement-partner-mmp-for-google-ads-and-meta)**
 
 ---
 
